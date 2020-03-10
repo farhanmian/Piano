@@ -1,0 +1,573 @@
+.body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.container {
+    width: 60vw;
+    height: 29vh;
+    /* background-image: url(img/woodenbg2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0px 20px 20px rgba(0,0,0,.5);
+    padding: 10px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.hole{
+    width: 7px;
+    height: 7px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+}
+
+.hole1 {
+    
+    top: 15%;
+    left: 3%;
+}
+
+.hole2 {
+    bottom: 15%;
+    left: 3%;
+}
+
+.hole3 {
+    right: 3%;
+    top: 15%;
+}
+
+.hole4 {
+    right: 3%;
+    bottom: 15%
+}
+
+
+.Piano {
+    width: 90%;
+    height: 90%;
+    /* background-color: #000; */
+   /* box-shadow: 0px 2px 2px rgba(0,0,0,.5); */
+    border: 5px inset rgba(97, 53, 2, 0.7); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    
+}
+
+.key {
+    display: inline-block;
+    width: 3.14vw;
+    height: 90%;
+    /* background-color: #fff; */
+    background-image: linear-gradient(to bottom, rgba(153, 149, 149, 0.9), rgba(255,255,255,.9) );
+    margin-left: 1.8vw;
+    margin-top: 4px;
+    box-shadow: -2px 1px 5px rgba(0,0,0,.9);
+    border-bottom-left-radius: 5px;
+    
+}
+
+
+
+.keyActive {
+    box-shadow: none;
+    
+}
+
+::selection {
+    background-color: none;
+}
+
+
+@media only screen and (max-width: 1100px) {
+    .container {
+        width: 80vw;
+    }
+
+    .key {
+        width: 4.9vw;
+    }
+
+    
+}
+
+
+
+@media only screen and (max-width: 900px) {
+    .container {
+        width: 80vw;
+        left: 50%;
+    }
+
+    .key {
+        width: 4.8vw;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .container {
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 88vw;
+    }
+    .key {
+        margin-left: 1.4vw;
+        width: 5.9vw;
+    }
+    
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 110vw;
+        height: 35vh;
+        left: 50%;
+    }
+    .key {
+        width: 7.6vw;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .container{
+        transform: rotate(90deg);
+        left: 0%;
+        top: 40%;
+        margin-left: -25px;
+        width: 130vw;
+    }
+    .key {
+        width: 9.1vw;
+    }
+    .key:first-child {
+        margin-left: 7px;
+    }
+    
+}
+
+@media only screen and (max-width: 400px) {
+    .container {
+        left: -20%;
+        width: 160vw;
+        top: 31%;
+        
+    }
+
+    .key {
+        width: 11.6vw;
+    }
+    .key:first-child {
+        margin-left: 8px;
+    }
+}
+
+
+
+@media only screen and (max-width: 300px) {
+    .container {
+        width: 180vw;
+        left: -30%;
+        top: 33%;
+    }
+
+    .key {
+        width: 13.2vw;
+    }
+    .key:first-child {
+        margin-left: 7px;
+    }
+}
+
+@media only screen and (max-width: 250px) {
+    .container {
+        top: 38%;
+        width: 250vw;
+        left: -59%;
+        
+        
+    }
+
+    .key {
+        width: 19.1vw;
+    }
+}
+
+@media only screen and (max-height: 700px) {
+    .container {
+        height: 35vh;
+    }
+}
+
+
+.percentCount {
+    
+    width: 450px;
+    height: 100px;
+    margin: 100px auto;
+    margin-bottom: 0px;
+    font-size: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+
+.progress-bar {
+    width: 500px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    margin: 10px auto;
+    padding: 3px;
+}
+
+.progress {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #00a2ff;
+}
+
+.btnstart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 30px;
+    font-weight: 300;
+    padding: 10px 35px;
+    border-radius: 100px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.popup {
+    width: 90px;
+    height: 50px;
+    background-color: #fff;
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    left: 20px;
+    border-radius: 100px;
+    z-index: -1;
+}
+
+.btnstart .popup {
+    animation: bubbleUp .70s infinite;
+}
+
+@keyframes bubbleUp {
+    0% {
+        /* transform: scale(1.5); */
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(2.3);
+        opacity: 0;
+
+    }
+}
+
+.btnstart:hover {
+    margin-top: -2px;
+}
+.btnstart:active {
+    margin-top: 0;
+}
+.btnstart:focus {
+    outline: none;
+}
+
+
+
+.themes {
+    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    
+        
+}
+
+.theme1-1 {
+    display: inline-block;
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    outline: 5px solid rgb(255, 255, 255);
+    outline-offset: 5px;
+    cursor: pointer;
+}
+
+
+.bg1 {
+    background-image: url(img/drb.png);
+    background-size: 50rem;
+    background-repeat: repeat;
+}
+
+
+/*////////////////////// Background THEMES ////////////////////*/
+
+.bgTheme1 {
+    background-image: url(img/bgtheme2.jpg);
+    height: 100vh;
+}
+
+.bgTheme2 {
+    background-image: url(img/bgtheme2-2.jpg);
+    height: 100vh;
+}
+
+.bgTheme3 {
+    background-image: url(img/ContainerPTheme3.jpg);  
+    height: 100vh;
+}
+
+
+.bg2 {
+    background-image: url(img/bg.jpg);
+    height: 100vh;
+}
+
+/* ///////////////////  CONTAINER THEMES ///////////////////*/
+
+.containerTheme0 {
+    background-image: url(img/woodenbg2.jpg);
+    
+}
+
+.containerTheme1 {
+    /* background-image: url(img/woodenbg2.jpg); */
+    background-color: rgba(255,255,255,.6);
+    
+}
+.containerTheme2 {
+    /* background-image: url(img/containerTheme2.jpg); */
+    background-color: rgba(199, 195, 195, 0.7);
+    background-position: 100%;
+    
+}
+.containerTheme3 {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(144, 106, 56, 0.4)) ,url(img/woodenbg2.jpg);
+    /* background-color: rgba(rgb(61, 44, 3,.5)); */
+}
+
+
+
+
+/*///////////////////// PIANO THEME /////////////////////////*/
+/* border: 5px inset rgba(97, 53, 2, 0.7); */
+
+.pianoTheme0 {
+    background-image: linear-gradient(to right bottom, rgba(0,0,0,.3), rgba(0,0,0,.3) )  ,url(img/woodenbg.jpg);
+    border: 5px inset rgba(97, 53, 2, 0.7);
+    
+    
+}
+.pianoTheme1 {
+    background-image: linear-gradient(to right bottom, rgba(0,0,0,.3), rgba(0,0,0,.3) )  ,url(img/ContainerPTheme1.jpg);
+    border: 5px inset rgba(219, 239, 246, 0.7);
+    background-position: 100%;
+}
+.pianoTheme2 {
+    background-image: linear-gradient(to right bottom, rgba(0,0,0,.3), rgba(0,0,0,.3) )  ,url(img/containerTheme2.jpg);
+    border: 5px inset rgba(46, 25, 1, 0.7);    
+    background-position: center;
+    
+}
+.pianoTheme3 {
+    background-image: linear-gradient(to right bottom, rgba(37, 19, 1, .9), rgba(0,0,0,.3) )  ,url(img/bgTheme1-1.jpg);
+    background-position: top;
+    
+    
+    
+}
+
+/* //////////////////////// Theme selector ///////////////////// */
+
+.themeSelector {
+    /* width: 99vw; */
+    height: 99vh;
+    border: 1px solid #000;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    filter: drop-shadow(2px 4px 6px black);
+    overflow: hidden;
+    z-index: 99;
+    background-color: rgba(0,0,0,.4);
+    animation: bubbleDown .4s;
+    
+}
+
+
+@keyframes bubbleDown {
+    0% {
+        transform: translateY(-90vh);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.themeSetting {
+    display: inline-block;
+    width: 100%;
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,50%);
+    /* cursor: pointer; */
+    z-index: 2;
+}
+
+.img {
+    width: 18vw;
+    height: 18vh;
+    outline: 5px solid rgba(16, 213, 231, 0.9);
+    outline-offset: 5px;
+    cursor: pointer;
+    display: none !important;
+    transition: all .2s;
+    backface-visibility: hidden;
+    margin-top: -15vh;
+}
+
+.img:hover {
+    transform: scale(1.1);
+    outline-offset: 1.5rem;
+}
+.img:active {
+    outline-offset: 1.3rem;
+}
+
+
+/* //////////////// with the help of these classes we are adding and removing things ///////  */
+.themeNoDisplay {
+    display: block !important;
+}
+
+.containerzIndex {
+    z-index: -2;
+}
+
+.downArrow {
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    clip-path: polygon(50% 19%, 100% 0, 50% 100%, 1% 0);
+    margin-top: 7px;
+    animation: upDown .6s infinite;
+    transition: all .3s;
+    display: inline-block;
+    position: fixed;
+    left: 50%;
+    cursor: pointer;
+}
+.themeSetting__afClick {
+    background-color: #fff;
+    clip-path: polygon(50% 71%, 100% 100%, 50% 0, 0 100%);
+}
+
+@keyframes upDown {
+    0% {
+        transform: translateY(-2px);
+    }
+
+    100% {
+        transform: translateY(2px);
+    }
+}
+
+.whenclick {
+    display: none;
+}
+
+.goback {
+    display: 'inline-block';
+    position: absolute;
+    margin: 10px;
+    cursor: pointer;
+    margin: 15px;
+    height: 30px;
+    animation: leftRight .8s infinite;
+}
+
+.back {
+    background-color: #fff;
+    clip-path: polygon(56% 5%, 100% 0, 63% 50%, 100% 100%, 60% 92%, 0 50%);
+}
+
+
+@keyframes leftRight {
+    0% {
+        transform: translateX(-2px);
+    }
+
+    100% {
+        transform: translateX(2px);
+    }
+}
+
+
+.btntest {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 30px;
+    font-weight: 300;
+    padding: 10px 35px;
+    border-radius: 100px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.btntest .popup {
+    animation: bubbleUp .70s infinite;
+}
+
+.btntest:hover {
+    margin-top: -2px;
+}
+.btntest:active {
+    margin-top: 0;
+}
+.btntest:focus {
+    outline: none;
+}
+
+
+.themeSelector::selection {
+    background-color: transparent;
+}
+
+body::selection {
+    background-color: transparent;
+}
