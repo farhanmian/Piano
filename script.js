@@ -1,3 +1,6 @@
+// strings.containerTheme.classList.remove('containerzIndex');
+
+
 const strings = {
 
     container : document.querySelector('.container'),
@@ -13,7 +16,7 @@ const strings = {
     helpTog : document.querySelector('.helpToggle'),
     themeSettingArrow : document.querySelector('.downArrow'),
     body : document.querySelector('.body'),
-    back: document.querySelector('.goback')
+    afterLoadTheme: document.querySelector('.after_load_theme')
 }
 
 /////////////////////////////////////////////////
@@ -81,7 +84,7 @@ let eventListners = {
             document.addEventListener('keydown', function(event) {
                 if(event.key == i) {
                     document.querySelector(`.key${i}`).classList.add('keyActive');              
-                    console.log(i);
+                    // console.log(i);
                     new Audio(`music/music${i}.mp3`).play();
                 }
             });
@@ -101,6 +104,27 @@ let eventListners = {
         }
     
     },
+
+    ////////////////////////// REMOVE after load black theme
+
+    removeTheme: () => {
+
+        for(let i = 0; i < 10; i++) {
+            document.addEventListener('keypress', (event) =>{
+                
+                if(event.key == i) {
+                    strings.afterLoadTheme.style.display = 'none';
+                    strings.themeSettingArrow.style.display = 'inline-block';
+
+                }
+                
+            })
+        }
+
+    },
+
+
+
     ////// i have created this cause i need this in diff palces, so to fallow Dry 
     firstLoad : function() {
         
@@ -109,13 +133,16 @@ let eventListners = {
         let percentage = document.getElementById('percentCount');
         let count = 5;
         let progress = 25;
-        let stop = setInterval(frame,60)
+        let stop = setInterval(frame,15)
         percentage.style.display = 'block';
         percentBar.style.display = 'block';
         document.querySelector('.btntest').style.display = 'none';
         function frame() {
             if(progress == 500 && count == 100 ) { // progress = 500, && count = 100;
                 clearInterval(stop);
+
+                eventListners.music();
+
                 percentage.style.display = 'none';
                 percentBar.style.display = 'none';
                 functions.clear_Img_Con_Pia();
@@ -124,10 +151,13 @@ let eventListners = {
                 strings.container.style.display = 'flex';
                 strings.PianoTheme.classList.add('pianoTheme0');
                 strings.containerTheme.classList.add('containerTheme0');
-                strings.themeSettingArrow.style.display = 'inline-block';
+                // strings.themeSettingArrow.style.display = 'inline-block';
                 showStff();
                 strings.containerTheme.classList.add('containerTheme0');
-                strings.themeStngbtn.style.display = 'inline-block';       
+                strings.themeStngbtn.style.display = 'inline-block';
+                
+                strings.afterLoadTheme.style.display = 'block';
+                eventListners.removeTheme();
 
                 /// if we call eventlistners.music function here and go in menu and come back again value increases
 
@@ -163,7 +193,6 @@ let eventListners = {
         strings.containerTheme.classList.toggle('containerzIndex');
         strings.themeSettingArrow.classList.toggle('themeSetting__afClick');
         // document.querySelector('.downArrow').style.backgroundColor = 'white';
-        document.querySelector('.goback').classList.toggle('whenclick');
         
 
         for(let i = 0; i < strings.images.length; i++) {
@@ -178,37 +207,19 @@ let eventListners = {
             this.afterClick();
             
         });
+
+        document.addEventListener('keydown', (event) => {
+            if(event.keyCode == 40 || event.keyCode == 38) this.afterClick();
+            // console.log(event)
+        });
+
+
+
     },
 
 
-    /// going back to main menu
-    mainMenu: function() {
-        strings.back.addEventListener('click', () => {
-            
-            this.afterClick();
-            functions.clearBg();
-            functions.clear_Img_Con_Pia();
-            strings.body.classList.add('bg1');
-            strings.container.style.display = 'none';
-            document.querySelector('.btntest').style.display = 'block';
-            
-            let pop = document.querySelector('.popup');
-            pop.style.display = 'block';
-
-            document.querySelector('.goback').classList.add('whenclick');
-            strings.themeSettingArrow.style.display = 'none';
-            
-            
-            document.querySelector('.btntest').addEventListener('click', function() {                
-                eventListners.firstLoad();
-                eventListners.themeContainer();
-            });
-
-        });
-    }
 
 }
-
 
 
 
@@ -238,6 +249,11 @@ function hideStff() {
     strings.themeStngbtn.classList.remove('themeSettingAnimation');
 
     document.querySelector('.btntest').style.display = 'none';
+
+    strings.afterLoadTheme.style.display = 'none';
+
+    strings.themeSettingArrow.style.display = 'none';
+
     
 }
 
@@ -294,6 +310,4 @@ function chooseImg() {
 ////////////////////////////////  Calling The Functions /////////////////////////////////
 
 hideStff();
-eventListners.mainMenu();
 eventListners.load();
-eventListners.music(); 
