@@ -210,6 +210,7 @@ let eventListners = {
 
         document.addEventListener('keydown', (event) => {
             if(event.keyCode == 40 || event.keyCode == 38) this.afterClick();
+            strings.themeStngbtn.style.zIndex = '9999';
             // console.log(event)
         });
 
