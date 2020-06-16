@@ -205,7 +205,7 @@ let eventListners = {
     themeContainer: function() {
         strings.themeSettingArrow.addEventListener('click', () => {
             this.afterClick();
-            
+            strings.themeStngbtn.style.zIndex = '9999';
         });
 
         document.addEventListener('keydown', (event) => {
